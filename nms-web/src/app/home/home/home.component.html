@@ -1,0 +1,30 @@
+<mat-toolbar class="home-header" color="primary">
+  <button mat-icon-button (click)="sideNav.toggle()">
+    <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
+  </button>
+  <span>網站標題</span>
+  <span class="toolbar-seperator"></span>
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="custom-sidenav-container">
+  <mat-sidenav opened="true" mode="side" #sideNav>
+    <mat-nav-list>
+      <a [routerLink]="['/', 'dashboard', 'survey']" mat-list-item>問卷調查</a>
+      <a [routerLink]="['/', 'dashboard', 'blog']" mat-list-item>部落格</a>
+      <a [routerLink]="['/', 'dashboard', 'inbox']" mat-list-item>收件夾</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <h1>HomeComponent Works !!</h1>
+    <button mat-button (click)="sideNav.toggle()">切換側邊選單</button>
+
+    <button mat-button color="primary">Primary</button>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
